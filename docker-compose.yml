@@ -9,11 +9,14 @@ services:
     image: spyder
     container_name: spyder
     ports:
-      - 22:22
+      - 2022:22
     # command: ['tail', '-f', '/dev/null']
     volumes:
       - .:/home/notebook-user
-
-
-# docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' spyder
-# ssh notebook-user@127.0.0.1:2022
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]

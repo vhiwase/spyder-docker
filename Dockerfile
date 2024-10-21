@@ -30,7 +30,7 @@ RUN python3.10 get-pip.py && \
 
 RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 RUN adduser -h ${HOME} -s /bin/sh -D ${NB_USER}
-RUN echo -n '${NB_USER}:1234' | chpasswd
+RUN echo -n "${NB_USER}:1234" | chpasswd
 
 COPY ./entrypoint.sh /
 
